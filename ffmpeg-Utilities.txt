@@ -28,3 +28,7 @@ ffmpeg -i video.mp4 -i audio.mp4 -c copy output.mp4
 		video to gif
 
 ffmpeg -i input.mp4 -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
+
+		trim
+		
+ffmpeg -i movie.mp4 -ss 00:00:03 -t 00:00:08 -async 1 cut.mp4
