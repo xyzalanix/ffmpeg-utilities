@@ -36,3 +36,7 @@ ffmpeg -i movie.mp4 -ss 00:00:03 -t 00:00:08 -async 1 cut.mp4
 		increase volume
 
 ffmpeg -i input.wav -filter:a "volume=10dB" output.wav
+
+        reverb (impulse responses)
+        
+ffmpeg -i raw.wav -i ir.wav -filter_complex '[0] [1] afir=dry=10:wet=10 [reverb]; [0] [reverb] amix=inputs=2:weights=10 1' mix.wav
