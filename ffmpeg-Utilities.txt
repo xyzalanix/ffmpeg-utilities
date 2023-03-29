@@ -40,3 +40,7 @@ ffmpeg -i input.wav -filter:a "volume=10dB" output.wav
         reverb (impulse responses)
         
 ffmpeg -i raw.wav -i ir.wav -filter_complex '[0] [1] afir=dry=10:wet=10 [reverb]; [0] [reverb] amix=inputs=2:weights=10 1' mix.wav
+
+	grid of images
+	
+ffmpeg -pattern_type glob -i "*.png" -filter_complex tile=3x3 output.png
